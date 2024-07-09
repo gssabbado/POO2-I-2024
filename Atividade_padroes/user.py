@@ -7,7 +7,7 @@ class User(ABC):
     def __init__(self, name:str, id_user:str, cpf:str) -> None:
         self._name = name
         self._id_user = id_user
-        self._cpf = cpf
+        self.__cpf = cpf
         self._book_history = {}
         self.__score = 0
 
@@ -18,7 +18,18 @@ class User(ABC):
     @abstractmethod
     def consult_score(self) -> int:
         pass
-
+    
+    def get_user(self):
+        return {
+            "name": self._name,
+            "User ID": self._id_user,
+            "CPF": self.__cpf,
+            "Book History": self._book_history,
+            "Score": self.__score
+        }
+    
+    def get_user_id(self) -> str:
+        return self._id_user
 
 class StudentUserType(User):
     def consult_history(self) -> dict:
