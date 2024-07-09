@@ -45,6 +45,6 @@ book3 = Book('666', 'Me ajuda Deus', 'Lucifer Cristo', 'Horror', 'Inferno Astral
 
 print(book3.get_book())
 
-book3.set_book(title="Me ajuda Satanás", category="Gospel") 
+book3.set_book(title="Me ajuda Satanas", category="Gospel") 
 
 print(book3.get_book())  
