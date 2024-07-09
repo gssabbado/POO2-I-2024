@@ -38,10 +38,10 @@ class Book (object):
 
 #### Teste ####
 
-book1 = Book('666', 'Me ajuda Deus', 'Lucifer Cristo', 'Horror', 'Inferno Astral', '1994', True)
+book3 = Book('666', 'Me ajuda Deus', 'Lucifer Cristo', 'Horror', 'Inferno Astral', '1994', True)
 
-print(book1.get_book())
+print(book3.get_book())
 
-book1.set_book(title="Me ajuda Satanás", category="Gospel") 
+book3.set_book(title="Me ajuda Satanás", category="Gospel") 
 
-print(book1.get_book())  
+print(book3.get_book())  
