@@ -35,6 +35,9 @@ class Book (object):
                 "available": self._available
                 }
     
+    def get_book_id(self) -> str:
+        return self._id_book
+    
 
 #### Teste ####
 
