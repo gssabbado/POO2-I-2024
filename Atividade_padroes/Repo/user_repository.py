@@ -30,4 +30,6 @@ class RepositoryUser:
                 break
             if not removed:
                 print("User not registered!")
-         
+
+    def get_user_repository(self) -> list:
+        return self.__user_repository

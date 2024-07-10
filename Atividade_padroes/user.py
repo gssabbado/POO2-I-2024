@@ -18,7 +18,11 @@ class User(ABC):
     @abstractmethod
     def consult_score(self) -> int:
         pass
-    
+
+    @abstractmethod
+    def set_score(self, score: int) -> None:
+        self.__score += score
+
     def get_user(self):
         return {
             "name": self._name,
