@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Type
+from book_repository import BookRepository
 
 #Tem que alterar o consult_history depois que tiver as funcinoaalidades em adm
 
@@ -18,8 +19,7 @@ class User(ABC):
     @abstractmethod
     def consult_score(self) -> int:
         pass
-
-    @abstractmethod
+    
     def set_score(self, score: int) -> None:
         self.__score += score
 
@@ -55,14 +55,22 @@ class TeacherUserType(User):
     
     def consult_score(self) -> int:
         print(f"{self._name} score: {self._User__score}")
+    
+    def pay_score(self) -> None:
+        if self._User__score == 0:
+            print("No debt to pay")
+        else:
+            self._User__score = 0
+            print("Debt payed")
 
-    #def reserve_book(self, id_book: str) -> None:
-    #   if id_book in list_of_books:   
-    #       book.avalible = No       
-    #   else:
-    #       print("Book not found!")
-    #
-    #
+    def reserve_book(self, repo:Type[BookRepository], id_book: str) -> None:
+       book = repo.find_book(id_book)
+       if book is not None and book.get_book_available():
+            book.set_book_availalability(False)
+       else:
+           print("Book not available.")
+    
+    
    # def find_user(self, user: Type[User]) -> bool:
    #    for user in list_of_users:
    #        if user == list_of_users:
@@ -70,9 +78,13 @@ class TeacherUserType(User):
    #        else:
    #            print("User not found!")
 
+'''
 #Testando:
 student = StudentUserType("Joao", "ID","CPF")
-
+repo = BookRepository()
+repo.teste()
+print(len(repo.get_book_repository()))
+repo.find_book("id")
 student.consult_score()
 student.pay_score()
 student.consult_history()
@@ -85,6 +97,10 @@ student.consult_score()
 
 teacher = TeacherUserType("Prof","IdProf","CpfProf")
 
+teacher.reserve_book(repo, id_book="id")
+teacher.reserve_book(repo, id_book="id")
+
 teacher.consult_history()
 teacher.consult_score()
 teacher.pay_score()
+'''

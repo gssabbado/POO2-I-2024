@@ -10,6 +10,7 @@ class Book (object):
     
     def set_book_availalability(self, available: bool) -> None:
         self._available = available
+        print("DEU")
 
     def get_book_available(self) -> bool:
             return self._available
