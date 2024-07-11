@@ -1,5 +1,6 @@
 from typing import Type
 from book_repository import BookRepository
+from user_repository import User
 
 class Admin:
     def __init__(self, name:str, id_admin:str, cpf:str) -> None:
@@ -13,6 +14,9 @@ class Admin:
     def remove_book_from_repo(self, repo: Type[BookRepository], id_book: str)-> None:
         repo.remove_book(id_book)
     
+    def add_user_to_repo(self, repo:Type[UserRepository], id_user:str) -> None:
+        repo.add_user(user:Type[User]) #Ver isso aqui
+        
     #Entender como o user_repository funciona, em especial o add user
     '''
     def find_user(self, repo:Type[UserRepository], id_user:str)->None:
@@ -23,9 +27,6 @@ class Admin:
             else:
                 print("User not found!")
     
-    def add_user_to_repo(self, repo:Type[UserRepository], id_user:str) -> None:
-        repo.add_user(user:Type[User]) #Ver isso aqui
-        
     def remove_user(self, repo: Type[UserRepository], id_user:str) -> None:
         repo.remove_user(id_user)       
 
