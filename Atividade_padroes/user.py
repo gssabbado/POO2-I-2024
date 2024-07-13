@@ -3,17 +3,13 @@ from typing import Type
 from book_repository import BookRepository
 
 #Tem que alterar o consult_history depois que tiver as funcinoaalidades em adm
-#Separar em arquivos as classes
-
-class User(ABC):
-    #Adicionar email
-    def __init__(self, name:str, id_user:str, cpf:str) -> None:
+class User:
+    def __init__(self, name:str, id_user:str, cpf:str, email:str) -> None:
         self._name = name
         self._id_user = id_user
         self.__cpf = cpf
-        self._book_history = {}         #Colocar apenas no student e no teacher
-        self.__score = 0                #Colocar apenas no student e no teacher e adicionar max_book_limit
-
+        self._email = email
+        
     @abstractmethod
     def consult_history(self) -> dict:
         pass
@@ -21,11 +17,13 @@ class User(ABC):
     @abstractmethod
     def consult_score(self) -> int:
         pass
-    
+
+'''    
     def set_score(self, score: int) -> None:
-        self.__score += score
+        self._score += score
 
     def get_user(self):
+        print("teste")
         return {
             "name": self._name,
             "User ID": self._id_user,
@@ -35,31 +33,10 @@ class User(ABC):
         }
     
     def get_user_id(self) -> str:
+        print("teste")
         return self._id_user
+'''
 
-#Adicionar os atributos book_history, max_book_limit e score
-class StudentUserType(User):
-    def consult_history(self) -> dict:
-        print(f"{self._name} history: {self._book_history}")
-    
-    def consult_score(self) -> int:
-        print(f"{self._name} score: {self._User__score}")  
-
-#Adicionar os atributos book_history, max_book_limit e score
-class TeacherUserType(User):
-    def consult_history(self) -> dict:
-        print(f"{self._name} history: {self._book_history}")
-    
-    def consult_score(self) -> int:
-        print(f"{self._name} score: {self._User__score}")
-    
-    def reserve_book(self, repo:Type[BookRepository], id_book: str) -> None:
-       book = repo.find_book(id_book)
-       if book is not None and book.get_book_available():
-            book.set_book_availalability(False)
-       else:
-           print("Book not available.")
-    
 '''
 #Testando:
 student = StudentUserType("Joao", "ID","CPF")

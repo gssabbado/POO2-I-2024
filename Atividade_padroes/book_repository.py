@@ -1,14 +1,21 @@
 from book import Book
+from typing import Type
 
 class BookRepository:
     def __init__(self) -> None:
         self.__book_repository = []
 
+    #Retirar/Diminuir as mensagens
     #Alterar para Clean Arquitecture (colocar Book ao invés de tanta variável, ou fazer de forma elegante)    
     def add_book(self, id_book: str, title: str, author: str, category: str, publisher: str, year: str, available: bool) -> None:
         book = Book(id_book, title, author, category, publisher, year, available)
         self.__book_repository.append(book)
         print(f"Book registered!, ID: {self.__book_repository[-1].get_book_id()}")
+    
+    def add_book(self, book:Type[Book]) -> None:
+        self.__book_repository.append(book)
+        print(f"Book registered!, ID: {self.__book_repository[-1].get_book_id()}")
+
 
     def remove_book(self, id_book:str) -> None:
         removed = False
@@ -27,9 +34,9 @@ class BookRepository:
     
     def find_book(self, id_book:str) -> None:
         for book in self.__book_repository:
-            print("ID ATUAL " + book.get_book_id())
+            #print("ID ATUAL " + book.get_book_id()) para se localizar nos teste
             if book.get_book_id() == id_book:
-                print("Book found! A")
+                print("Book found! A\n")
                 return book
         print("Book not found! B")
         return None
