@@ -1,6 +1,6 @@
 from user import User
 
-
+#Se der tempo, arrumar o inglês
 class RepositoryUser:
     def __init__(self) -> None:
         self.__user_repository = []
