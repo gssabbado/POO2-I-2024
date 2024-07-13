@@ -3,7 +3,8 @@ from book import Book
 class BookRepository:
     def __init__(self) -> None:
         self.__book_repository = []
-    
+
+    #Alterar para Clean Arquitecture (colocar Book ao invés de tanta variável, ou fazer de forma elegante)    
     def add_book(self, id_book: str, title: str, author: str, category: str, publisher: str, year: str, available: bool) -> None:
         book = Book(id_book, title, author, category, publisher, year, available)
         self.__book_repository.append(book)
@@ -24,8 +25,6 @@ class BookRepository:
         for book in self.__book_repository:
             print(book.get_book())
     
-
-    #alterar
     def find_book(self, id_book:str) -> None:
         for book in self.__book_repository:
             print("ID ATUAL " + book.get_book_id())

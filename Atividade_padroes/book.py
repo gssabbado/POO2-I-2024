@@ -1,4 +1,7 @@
+#Book é Leaf
+
 class Book (object):
+    #Mudar para privado
     def __init__(self, id_book: str, title: str, author: str, category: str, publisher: str, year: str, available: bool) -> None:
         self._id_book = id_book
         self._title = title
