@@ -6,16 +6,9 @@ class BookRepository:
         self.__book_repository = []
 
     #Retirar/Diminuir as mensagens
-    #Alterar para Clean Arquitecture (colocar Book ao invés de tanta variável, ou fazer de forma elegante)    
-    def add_book(self, id_book: str, title: str, author: str, category: str, publisher: str, year: str, available: bool) -> None:
-        book = Book(id_book, title, author, category, publisher, year, available)
-        self.__book_repository.append(book)
-        print(f"Book registered!, ID: {self.__book_repository[-1].get_book_id()}")
-    
     def add_book(self, book:Type[Book]) -> None:
         self.__book_repository.append(book)
         print(f"Book registered!, ID: {self.__book_repository[-1].get_book_id()}")
-
 
     def remove_book(self, id_book:str) -> None:
         removed = False
@@ -41,6 +34,7 @@ class BookRepository:
         print("Book not found! B")
         return None
             
+    #Ver a necessidade disso        
     def get_book_repository(self)->list:
         return self.__book_repository
     
@@ -49,7 +43,11 @@ class BookRepository:
 
 #Testes
 #la = BookRepository()
-#la.add_book("id","titulo","autor","categoria","publicador","ano",True)
+#book1 = Book("id","titulo","autor","categoria","publicador","ano",True)
+#book2 = Book("iAA","tulo","Autor","Ctegoria","Publicador","Ano",True)
+#la.add_book(book1)
+#la.add_book(book2)
+
 #la.list_books()
 #la.find_book("id")
 #la.remove_book("id")
