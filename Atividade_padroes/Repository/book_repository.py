@@ -1,4 +1,4 @@
-from book import Book
+from Composite.book import Book
 from typing import Type
 
 class BookRepository:
@@ -33,10 +33,6 @@ class BookRepository:
         print("Book not found! B")
         return None
             
-    #Ver a necessidade disso        
     def get_book_repository(self)->list:
         return self.__book_repository
-    
-    def teste(self):
-        self.add_book("id","titulo","autor","categoria","publicador","ano",True)
 

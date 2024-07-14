@@ -4,7 +4,7 @@ from User.student_user import StudentUserType
 from User.admin_user import AdminUserType
 from User.teacher_user import TeacherUserType
 from Repository.book_repository import BookRepository
-from library_mediator import LibraryMediator
+from Mediator.library_mediator import LibraryMediator
 
 class LibraryFacade:
     def __init__(self, book_repository: Type[BookRepository]) -> None:

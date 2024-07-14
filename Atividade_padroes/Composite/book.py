@@ -1,5 +1,5 @@
 #Book é Leaf
-from library_component import LibraryComponent
+from Composite.library_component import LibraryComponent
 from typing import List
 
 class Book (LibraryComponent):

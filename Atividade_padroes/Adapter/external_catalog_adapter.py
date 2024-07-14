@@ -1,7 +1,7 @@
 from typing import List, Optional, Union
-from external_catalog import ExternalCatalog
+from Adapter.external_catalog import ExternalCatalog
 from Repository.book_repository import BookRepository
-from book import Book
+from Composite.book import Book
 
 class ExternalCatalogAdapter(ExternalCatalog):
         def __init__(self, book_repository: BookRepository) -> None:

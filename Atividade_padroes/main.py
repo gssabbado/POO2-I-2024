@@ -1,19 +1,19 @@
-from library_mediator import LibraryMediator
-from library_facade import LibraryFacade
-from handler import Handler
+from Mediator.library_mediator import LibraryMediator
+from Facede.library_facade import LibraryFacade
+from ChainOfResponsability.handler import Handler
 from ChainOfResponsability.handler_chain import UserEligibilityHandler, BookAvailabilityHandler, LoanLimitHandler
 from Repository.book_repository import BookRepository
 from Repository.user_repository import UserRepository
-from book_category import BookCategory
-from library_component import LibraryComponent
-from external_catalog import ExternalCatalog
-from external_catalog_adapter import ExternalCatalogAdapter
-from book import Book
+from Composite.book_category import BookCategory
+from Composite.library_component import LibraryComponent
+from Adapter.external_catalog import ExternalCatalog
+from Adapter.external_catalog_adapter import ExternalCatalogAdapter
+from Composite.book import Book
 from User.user import User
 from User.student_user import StudentUserType
 from User.teacher_user import TeacherUserType
 from User.admin_user import AdminUserType
-from book_availability_notifier import BookAvailabilityNotifier
+from Observer.book_availability_notifier import BookAvailabilityNotifier
 
     # Inicializando o repositório de livros
 book_repo = BookRepository()
