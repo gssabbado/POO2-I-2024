@@ -1,7 +1,12 @@
 É interessante colocar as mensagnes em uma classe, massó se tiver tempo
 
-- book_category não está testado
-- Fazer os designs
+- Fiz os seguintes designs:
+    1. Composite;
+    2. Adapter;
+    3. Mediator;
+    4. Chain of Resposability;
+    5. Facade;
 
-
-Os repositórios e Users de todos os tipos estão testados, book também
+- Faltam os seguintes designs:
+    - Observer;
+    - 

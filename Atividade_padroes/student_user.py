@@ -5,18 +5,24 @@ class StudentUserType(User):
     def __init__(self, name:str, id_user:str, cpf:str, email:str) -> None:
         super().__init__(name, id_user, cpf, email) 
         self._book_history = {
-            "id_book": ["A"],
-            "title": ["B"],
+            "id_book": [],
+            "title": [],
             "author": [],
             "category": [],
             "publisher": [],
             "year": [],   
         }
         self._score = 20
-        self._max_book_limit = 0
+        self._max_book_limit = 5
     
     def get_user_id(self) -> str:
         return self._id_user
+
+    def is_eligible(self) -> bool:
+        return self._score > 0
+
+    def can_borrow_more_books(self) -> bool:
+        return len(self._book_history["id_book"]) < self._max_book_limit
 
     def consult_history(self) -> dict:
         print(f"{self._name} history: {self._book_history}")

@@ -14,8 +14,8 @@ class TeacherUserType(User):
             "publisher": [],
             "year": [],   
         }
-        self._score = 0
-        self._max_book_limit = 0
+        self._score = 10
+        self._max_book_limit = 10
     
     def get_user_id(self) -> str:
         return self._id_user
@@ -26,10 +26,17 @@ class TeacherUserType(User):
     def consult_score(self) -> int:
         print(f"{self._name} score: {self._score}")
     
+    def is_eligible(self) -> bool:
+        return self._score >= 0
+
+    def can_borrow_more_books(self) -> bool:
+        return len(self._book_history["id_book"]) < self._max_book_limit
+
+    
     def reserve_book(self, repo:Type[BookRepository], id_book: str) -> None:
        book = repo.find_book(id_book)
        if book is not None and book.get_book_available():
-            book.set_book_availalability(False)
+            book.set_book_availability(False)
        else:
            print("Book not available.\n")
 
@@ -45,5 +52,3 @@ class TeacherUserType(User):
                 "max_book_limit": self._max_book_limit
                 }
     
-#la = TeacherUserType("nome","id","cpf", "email")
-#print(la.get_user())

@@ -72,4 +72,11 @@ class AdminUserType(User):
         print("Book not found!")
 
     def remove_user(self, repo: Type[UserRepository], id_user:str) -> None:
-        repo.remove_user(id_user)       
+        repo.remove_user(id_user)   
+    
+    # Aqui o Admin pode pegar quantos livros quiser e está sempre elegivel para pegar os livros    
+    def is_eligible(self) -> bool:
+        return True
+
+    def can_borrow_more_books(self) -> bool:
+        return True    
