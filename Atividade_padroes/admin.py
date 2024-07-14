@@ -1,7 +1,7 @@
 from typing import Type
 from user import User
 from book_repository import BookRepository
-from user_repository import RepositoryUser
+from user_repository import UserRepository
 
 #Adaptar para ser um tipo de User, tirar o init e aplicar os métodos de consult_histpry e consult_score
 class Admin:
@@ -17,10 +17,10 @@ class Admin:
     def remove_book_from_repo(self, repo: Type[BookRepository], id_book: str)-> None:
         repo.remove_book(id_book)
     
-    def add_user_to_repo(self, repo:Type[RepositoryUser], user: Type[User]) -> None:
+    def add_user_to_repo(self, repo:Type[UserRepository], user: Type[User]) -> None:
         repo.add_user(user) #Ver isso aqui
     
-    def add_user_to_repo(self, repo:Type[RepositoryUser], id:str, nome:str, cpf_in:str) -> None:
+    def add_user_to_repo(self, repo:Type[UserRepository], id:str, nome:str, cpf_in:str) -> None:
         user = User(id_user=id, name=nome, cpf=cpf_in)
         repo.add_user(user) #Ver isso aqui
         
