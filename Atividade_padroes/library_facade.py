@@ -1,9 +1,9 @@
 from typing import Type
-from user import User
-from student_user import StudentUserType
-from admin_user import AdminUserType
-from teacher_user import TeacherUserType
-from book_repository import BookRepository
+from User.user import User
+from User.student_user import StudentUserType
+from User.admin_user import AdminUserType
+from User.teacher_user import TeacherUserType
+from Repository.book_repository import BookRepository
 from library_mediator import LibraryMediator
 
 class LibraryFacade:

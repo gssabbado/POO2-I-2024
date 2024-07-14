@@ -1,8 +1,8 @@
 from typing import Type
-from user import User
+from User.user import User
 from book import Book
-from book_repository import BookRepository
-from user_repository import UserRepository
+from Repository.book_repository import BookRepository
+from Repository.user_repository import UserRepository
 
 # Pronto, ja foi testado
 class AdminUserType(User):
@@ -41,13 +41,9 @@ class AdminUserType(User):
     
     def add_book_to_repo(self, repo: Type[BookRepository], book:Type[Book])->None:
         repo.add_book(book)
-        
+            
     def add_user_to_repo(self, repo:Type[UserRepository], user: Type[User]) -> None:
-        repo.add_user(user) 
-        print("TESTE")#Ver isso aqui
-    
-    def add_user_to_repo(self, repo:Type[UserRepository], user: Type[User]) -> None:
-        repo.add_user(user) #Ver isso aqui
+        repo.add_user(user)
         
     def remove_book_from_repo(self, repo: Type[BookRepository], id_book: str)-> None:
         repo.remove_book(id_book)
@@ -59,24 +55,20 @@ class AdminUserType(User):
                 "cpf": self._cpf,
                 "email": self._email,
                 }
-    
-    def reserve_book(self, repo: Type[BookRepository], id_book: str) -> None:
-        for book in repo.get_book_repository():
-            if book.get_book_id() == id_book:
-                if book.get_book_available():
-                    book.set_book_availalability(False)
-                    print(f"Book {id_book} reserved.")
-                else:
-                    print(f"Book {id_book} is already reserved.")
-                return
-        print("Book not found!")
+    def reserve_book(self, repo:Type[BookRepository], id_book: str) -> None:
+       book = repo.find_book(id_book)
+       if book is not None and book.get_book_available():
+            book.set_book_availability(False)
+            print(f"Book {id_book} reserved.")
+       else:
+           print("Book not available.\n")
 
-    def remove_user(self, repo: Type[UserRepository], id_user:str) -> None:
+    def remove_user_from_repo(self, repo: Type[UserRepository], id_user:str) -> None:
         repo.remove_user(id_user)   
     
     # Aqui o Admin pode pegar quantos livros quiser e está sempre elegivel para pegar os livros    
     def is_eligible(self) -> bool:
-        return True
+        return False
 
     def can_borrow_more_books(self) -> bool:
-        return True    
+        return False 

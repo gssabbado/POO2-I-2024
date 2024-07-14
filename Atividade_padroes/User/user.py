@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Type
-from book_repository import BookRepository
+from Repository.book_repository import BookRepository
 
 #Tem que alterar o consult_history depois que tiver as funcinoaalidades em adm
 class User:
@@ -28,4 +28,8 @@ class User:
 
     @abstractmethod
     def can_borrow_more_books(self) -> bool:
+        pass
+
+    @abstractmethod
+    def update(self) -> None:
         pass

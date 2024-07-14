@@ -1,18 +1,19 @@
 from library_mediator import LibraryMediator
 from library_facade import LibraryFacade
 from handler import Handler
-from handler_chain import UserEligibilityHandler, BookAvailabilityHandler, LoanLimitHandler
-from book_repository import BookRepository
-from user_repository import UserRepository
+from ChainOfResponsability.handler_chain import UserEligibilityHandler, BookAvailabilityHandler, LoanLimitHandler
+from Repository.book_repository import BookRepository
+from Repository.user_repository import UserRepository
 from book_category import BookCategory
 from library_component import LibraryComponent
 from external_catalog import ExternalCatalog
 from external_catalog_adapter import ExternalCatalogAdapter
 from book import Book
-from user import User
-from student_user import StudentUserType
-from teacher_user import TeacherUserType
-from admin_user import AdminUserType
+from User.user import User
+from User.student_user import StudentUserType
+from User.teacher_user import TeacherUserType
+from User.admin_user import AdminUserType
+from book_availability_notifier import BookAvailabilityNotifier
 
     # Inicializando o repositório de livros
 book_repo = BookRepository()
@@ -33,8 +34,17 @@ book_repo.add_book(Book("1", "Python Programming", "Guido van Rossum", "Programm
 book_repo.add_book(Book("2", "Data Science Handbook", "Jake VanderPlas", "Data Science", "DataBooks", "2022", True))
 book_repo.add_book(Book("3", "Design Patterns", "Erich Gamma", "Software Engineering", "DesignBooks", "2021", True))
 
+notifier = BookAvailabilityNotifier()
+user_repo = UserRepository(notifier)
+
+admin.add_user_to_repo(user_repo, teacher)
+admin.add_user_to_repo(user_repo, student)
+
+teacher.borrow_book(book_repo, "1")
+teacher.return_book(book_repo, "1")
+
     # Exemplo de interação com o facade
-library_facade.borrow_book(student, "1")
+'''library_facade.borrow_book(student, "1")
 library_facade.borrow_book(student, "4")  # Tentativa de empréstimo de um livro não existente
 
 library_facade.consult_book("2")
@@ -43,7 +53,7 @@ library_facade.reserve_book(teacher, "2")  # Apenas professores podem reservar l
 
     # Consulta do histórico e pontuação do usuário
 library_facade.consult_user_history(student)
-library_facade.consult_user_score(student)
+library_facade.consult_user_score(student)'''
 
 ''' #### Teste do Mediator #####
     # Inicializando o repositório de livros
