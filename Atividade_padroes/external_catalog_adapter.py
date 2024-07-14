@@ -1,6 +1,6 @@
 from typing import List, Optional, Union
 from external_catalog import ExternalCatalog
-from book_repository import BookRepository
+from Repository.book_repository import BookRepository
 from book import Book
 
 class ExternalCatalogAdapter(ExternalCatalog):

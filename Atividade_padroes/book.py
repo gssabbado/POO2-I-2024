@@ -34,6 +34,24 @@ class Book (LibraryComponent):
     def get_book_id(self) -> str:
         return self._id_book
     
+    def get_book_title(self) -> str:
+        return self._title
+    
+    def get_book_author(self) -> str:
+        return self._author
+    
+    def get_book_category(self) -> str:
+        return self._category
+    
+    def get_book_publisher(self) -> str:
+        return self._publisher
+    
+    def get_book_year(self) -> str:
+        return self._year
+    
+    def get_book_availabley(self) -> bool:
+        return self._available
+    
     def display(self, indent: int = 0) -> None:
         print(' ' * indent + f"Book: {self._title} by {self._author} (ID: {self._id_book})")
  

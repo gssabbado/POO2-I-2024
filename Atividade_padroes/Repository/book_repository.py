@@ -27,7 +27,6 @@ class BookRepository:
     
     def find_book(self, id_book:str) -> None:
         for book in self.__book_repository:
-            #print("ID ATUAL " + book.get_book_id()) para se localizar nos teste
             if book.get_book_id() == id_book:
                 print("Book found! A\n")
                 return book
