@@ -1,12 +1,12 @@
 from typing import Type
-from user import User
-from student_user import StudentUserType
+from User.user import User
+from User.student_user import StudentUserType
 from admin_user import AdminUserType
-from teacher_user import TeacherUserType
+from User.teacher_user import TeacherUserType
 from book import Book
-from book_repository import BookRepository
+from Repository.book_repository import BookRepository
 from handler import Handler
-from handler_chain import BookAvailabilityHandler, UserEligibilityHandler, LoanLimitHandler
+from ChainOfResponsability.handler_chain import BookAvailabilityHandler, UserEligibilityHandler, LoanLimitHandler
 
 class LibraryMediator:
     def __init__(self, book_repository: Type[BookRepository]) -> None:
