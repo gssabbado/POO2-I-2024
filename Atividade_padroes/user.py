@@ -22,38 +22,10 @@ class User:
     def get_user_id(self) -> str:
         pass
 
-'''    
-    def set_score(self, score: int) -> None:
-        self._score += score
+    @abstractmethod
+    def is_eligible(self) -> bool:
+        pass
 
-    def get_user_id(self) -> str:
-        print("teste")
-        return self._id_user
-'''
-
-'''
-#Testando:
-student = StudentUserType("Joao", "ID","CPF")
-repo = BookRepository()
-repo.teste()
-print(len(repo.get_book_repository()))
-repo.find_book("id")
-student.consult_score()
-student.pay_score()
-student.consult_history()
-student._book_history["Livro A"] = {"author": "Autor A", "year": 2023}
-student.consult_history()
-student._User__score = 100 #Só colocando uma dívida
-student.consult_score()
-student.pay_score()
-student.consult_score()
-
-teacher = TeacherUserType("Prof","IdProf","CpfProf")
-
-teacher.reserve_book(repo, id_book="id")
-teacher.reserve_book(repo, id_book="id")
-
-teacher.consult_history()
-teacher.consult_score()
-teacher.pay_score()
-'''
+    @abstractmethod
+    def can_borrow_more_books(self) -> bool:
+        pass

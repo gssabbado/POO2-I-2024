@@ -41,16 +41,3 @@ class BookRepository:
     def teste(self):
         self.add_book("id","titulo","autor","categoria","publicador","ano",True)
 
-#Testes
-#la = BookRepository()
-#book1 = Book("id","titulo","autor","categoria","publicador","ano",True)
-#book2 = Book("iAA","tulo","Autor","Ctegoria","Publicador","Ano",True)
-#la.add_book(book1)
-#la.add_book(book2)
-
-#la.list_books()
-#la.find_book("id")
-#la.remove_book("id")
-#la.list_books()
-#la.remove_book("dkdk")
-#la.list_books()
