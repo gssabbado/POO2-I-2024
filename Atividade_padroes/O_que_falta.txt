@@ -1,0 +1,7 @@
+É interessante colocar as mensagnes em uma classe, massó se tiver tempo
+
+- book_category não está testado
+- Fazer os designs
+
+
+Os repositórios e Users de todos os tipos estão testados, book também

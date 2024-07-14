@@ -6,10 +6,20 @@ from book_repository import BookRepository
 class TeacherUserType(User):
     def __init__(self, name:str, id_user:str, cpf:str, email:str) -> None:
         super().__init__(name, id_user, cpf, email)
-        self._book_history = {}
+        self._book_history = {
+            "id_book": [],
+            "title": [],
+            "author": [],
+            "category": [],
+            "publisher": [],
+            "year": [],   
+        }
         self._score = 0
         self._max_book_limit = 0
     
+    def get_user_id(self) -> str:
+        return self._id_user
+
     def consult_history(self) -> dict:
         print(f"{self._name} history: {self._book_history}")
     
@@ -22,3 +32,18 @@ class TeacherUserType(User):
             book.set_book_availalability(False)
        else:
            print("Book not available.\n")
+
+
+    def get_user(self):
+        return {
+                "id_user": self._id_user,
+                "name": self._name,
+                "cpf": self._cpf,
+                "email": self._email,
+                "book_hitory": self._book_history,
+                "score": self._score,
+                "max_book_limit": self._max_book_limit
+                }
+    
+#la = TeacherUserType("nome","id","cpf", "email")
+#print(la.get_user())

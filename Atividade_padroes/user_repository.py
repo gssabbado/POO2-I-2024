@@ -1,13 +1,13 @@
 from user import User
 
 #Se der tempo, arrumar o inglês
-class RepositoryUser:
+class UserRepository:
     def __init__(self) -> None:
         self.__user_repository = []
         
     def add_user(self, user: User) -> None:
         self.__user_repository.append(user)
-        print(f"User {user.get_user_info()['name']} added successfully.")
+        print(f"User {user.get_user_id()} added successfully.")
         
     def find_user_id(self, id_user: str):
         for user in self.__user_repository:
@@ -16,7 +16,7 @@ class RepositoryUser:
             else:
                 print("User not found!")
     
-    def user_list(self) -> None:
+    def list_users(self) -> None:
         for user in self.__user_repository:
             print(user.get_user())
     
@@ -25,10 +25,10 @@ class RepositoryUser:
         for user in self.__user_repository:
             if user.get_user_id() == id_user:
                 self.__user_repository.remove(user)
-                print(f"User {user.get_book_id()} removed.")
+                print(f"User {user.get_user_id()} removed.")
                 removed = True
                 break
-            if not removed:
+        if not removed:
                 print("User not registered!")
 
     def get_user_repository(self) -> list:
