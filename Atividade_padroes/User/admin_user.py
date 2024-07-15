@@ -1,6 +1,6 @@
 from typing import Type
 from User.user import User
-from book import Book
+from Composite.book import Book
 from Repository.book_repository import BookRepository
 from Repository.user_repository import UserRepository
 

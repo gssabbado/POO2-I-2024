@@ -1,11 +1,11 @@
 from typing import Type
 from User.user import User
 from User.student_user import StudentUserType
-from admin_user import AdminUserType
+from User.admin_user import AdminUserType
 from User.teacher_user import TeacherUserType
-from book import Book
+from Composite.book import Book
 from Repository.book_repository import BookRepository
-from handler import Handler
+from ChainOfResponsability.handler import Handler
 from ChainOfResponsability.handler_chain import BookAvailabilityHandler, UserEligibilityHandler, LoanLimitHandler
 
 class LibraryMediator:

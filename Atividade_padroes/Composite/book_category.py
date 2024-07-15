@@ -1,5 +1,5 @@
-from book import Book
-from library_component import LibraryComponent
+from Composite.book import Book
+from Composite.library_component import LibraryComponent
 from typing import List, Optional, Union
 
 class BookCategory(LibraryComponent):

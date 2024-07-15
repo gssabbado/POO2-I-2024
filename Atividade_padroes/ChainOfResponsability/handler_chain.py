@@ -1,9 +1,9 @@
 #dividir esse arquivo
 from typing import Type
 from User.user import User
-from book import Book
+from Composite.book import Book
 from Repository.book_repository import BookRepository
-from handler import Handler
+from ChainOfResponsability.handler import Handler
 
 class BookAvailabilityHandler(Handler):
     def __init__(self, book_repository: Type[BookRepository]) -> None:

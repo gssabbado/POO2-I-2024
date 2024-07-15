@@ -1,5 +1,5 @@
 from User.user import User
-from book_availability_notifier import BookAvailabilityNotifier
+from Observer.book_availability_notifier import BookAvailabilityNotifier
 from typing import Type
 
 
